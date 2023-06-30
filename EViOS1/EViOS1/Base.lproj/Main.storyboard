@@ -51,7 +51,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mkv-uk-aA8">
                                                 <rect key="frame" x="340.66666666666669" y="0.0" width="32.333333333333314" height="34"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eye_off_icon" translatesAutoresizingMaskIntoConstraints="NO" id="86X-Yc-Czs">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eye_on_icon" translatesAutoresizingMaskIntoConstraints="NO" id="86X-Yc-Czs">
                                                         <rect key="frame" x="0.0" y="0.0" width="32.333333333333336" height="34"/>
                                                     </imageView>
                                                 </subviews>
@@ -84,6 +84,10 @@
                                     </switch>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" id="aXp-VW-DgV">
+                                <rect key="frame" x="186" y="416" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mXe-ZD-0lk">
                                 <rect key="frame" x="78.666666666666671" y="753.66666666666663" width="235.66666666666663" height="34.333333333333371"/>
                                 <state key="normal" title="Button"/>
@@ -109,6 +113,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ynw-t7-7Us" secondAttribute="trailing" constant="10" id="c8k-xJ-UDh"/>
                             <constraint firstItem="mXe-ZD-0lk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hfY-y0-x6b"/>
                             <constraint firstItem="sHG-Rd-yHy" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="ntV-TC-rM1"/>
+                            <constraint firstItem="aXp-VW-DgV" firstAttribute="centerY" secondItem="xeI-ED-Xva" secondAttribute="centerY" id="nvS-4n-Hn4"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dKO-pz-b8v" secondAttribute="trailing" constant="50" id="pXn-Rg-YC4"/>
                             <constraint firstItem="ynw-t7-7Us" firstAttribute="top" secondItem="sHG-Rd-yHy" secondAttribute="bottom" constant="20" id="pm9-Zg-VAr"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="mXe-ZD-0lk" secondAttribute="bottom" constant="30" id="ppz-Lx-jZy"/>
@@ -118,6 +123,7 @@
                     </view>
                     <connections>
                         <outlet property="imageInView" destination="86X-Yc-Czs" id="mDh-0m-ekY"/>
+                        <outlet property="loader" destination="aXp-VW-DgV" id="t4r-ho-oPI"/>
                         <outlet property="loginField" destination="zdA-HF-fQM" id="qus-MY-47Z"/>
                         <outlet property="mySwitch" destination="ovM-L4-ncX" id="4tH-HC-q4o"/>
                         <outlet property="passwordField" destination="1wx-qn-ebD" id="xkb-04-j3r"/>
@@ -132,7 +138,7 @@
     </scenes>
     <resources>
         <image name="background_image" width="853" height="1280"/>
-        <image name="eye_off_icon" width="512" height="334"/>
+        <image name="eye_on_icon" width="512" height="512"/>
         <image name="user_icon" width="200" height="200"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

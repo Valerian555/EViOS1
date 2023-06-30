@@ -15,7 +15,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var loginField: UITextField!
     @IBOutlet weak var mySwitch: UISwitch!
-    var isHidden: Bool = true
+    var isHidden: Bool = false
+    @IBOutlet weak var loader: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +39,9 @@ class ViewController: UIViewController {
         let tapOnView = UITapGestureRecognizer(target: view, action:
         #selector(UIView.endEditing))
         view.addGestureRecognizer(tapOnView)
+        
+        //gestion du chargement
+        loader.isHidden = true
 
     }
     
@@ -54,33 +58,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func loginButton(_ sender: Any) {
-        
-        if let login = loginField.text {
-            if !login.isEmpty {
-                if let password = passwordField.text {
-                    if !password.isEmpty {
-                        if login.contains("@") {
-                            if password.count >= 4 {
-                                //toutes conditions remplies
-                               correctAlertBox(login: login)
-                            } else {
-                                //mot de passe incorrect
-                                incorrectAlertBox()
-                            }
-                        } else {
-                            //absence de "@"
-                            incorrectAlertBox()
-                        }
-                    } else {
-                        //password vide
-                        incorrectAlertBox()
-                    }
-                }
-            } else {
-                //Login vide
-                incorrectAlertBox()
-            }
-        }
+        startLoading()
+        loginVerification()
     }
     
     func incorrectAlertBox() {
@@ -117,6 +96,47 @@ class ViewController: UIViewController {
             present(alert, animated: true, completion: nil)
         }
     }
-
+    
+    func startLoading() {
+        loader.isHidden = false
+        loader.startAnimating()
+    }
+    
+    func loginVerification(){
+        DispatchQueue.global(qos: .default).async {
+            sleep(3)
+            
+            DispatchQueue.main.async {
+                self.loader.isHidden = true
+                
+                if let login = self.loginField.text {
+                    if !login.isEmpty {
+                        if let password = self.passwordField.text {
+                            if !password.isEmpty {
+                                if login.contains("@") {
+                                    if password.count >= 4 {
+                                        //toutes conditions remplies
+                                        self.correctAlertBox(login: login)
+                                    } else {
+                                        //mot de passe incorrect
+                                        self.incorrectAlertBox()
+                                    }
+                                } else {
+                                    //absence de "@"
+                                    self.incorrectAlertBox()
+                                }
+                            } else {
+                                //password vide
+                                self.incorrectAlertBox()
+                            }
+                        }
+                    } else {
+                        //Login vide
+                        self.incorrectAlertBox()
+                    }
+                }
+            }
+        }
+    }
 }
 
