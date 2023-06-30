@@ -90,6 +90,9 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Login">
                                     <color key="baseBackgroundColor" red="0.1256029904" green="0.27888128159999998" blue="0.2156784534" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="loginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5rw-bb-jH7"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -116,6 +119,7 @@
                     <connections>
                         <outlet property="imageInView" destination="86X-Yc-Czs" id="mDh-0m-ekY"/>
                         <outlet property="loginField" destination="zdA-HF-fQM" id="qus-MY-47Z"/>
+                        <outlet property="mySwitch" destination="ovM-L4-ncX" id="4tH-HC-q4o"/>
                         <outlet property="passwordField" destination="1wx-qn-ebD" id="xkb-04-j3r"/>
                         <outlet property="userIcon" destination="sHG-Rd-yHy" id="JcA-3K-HlH"/>
                         <outlet property="viewTap" destination="Mkv-uk-aA8" id="dhF-8w-VlY"/>
